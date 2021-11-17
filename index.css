@@ -1,8 +1,19 @@
+:root {
+    --bg-color: #fff8ed;
+    --title-text-color: #2f2f2f;
+    --subtitle-font-size: 1.5rem;
+    --subtitle-font-color: #05298f
+    --body-font-size: 1rem;
+    --body-font-color: #1d2030;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size:.875rem;
     padding-right: .3em;
     margin-top: 0;
+    background-color: var(--bg-color);
+    color: var(--title-text-color);
 }
 nav {
     flex: .1;
@@ -13,13 +24,76 @@ nav {
 }
 
 header {
+    font-family:'Courier New', Courier, monospace;
     display: flex;
-    padding-inline: 1em;
-    justify-content: end;
-    position: sticky;
-    top: 0em;
-    background-color: #fff;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
     
+}
+
+header div{
+    font-size: 2.25rem;
+    position: relative;
+}
+
+h1 {
+    width: max-content;
+    line-height: .875rem;
+}
+
+h1::before,
+h1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+h1::before {
+    background: var(--bg-color);
+    animation: typewriter 4s forwards steps(20) 1s;
+}
+
+h1::after {
+    animation: 
+        typewriter 4s steps(24) 1s forwards ,
+        cursor .53s infinite;
+    width: .125em;
+    background:var(--title-text-color);
+    bottom: .4em;
+}
+
+.subtitle-text {
+    font-size: var(--subtitle-font-size);
+    opacity: 0;
+    transform: translateY(8em);
+    animation: slide-up 2s forwards 6s ease;
+    color: var(--subtitle-font-color);
+}
+
+@keyframes typewriter {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes cursor {
+    to {
+        background: transparent;
+    }
+}
+
+@keyframes slide-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 a {
@@ -40,5 +114,6 @@ h3 span {
 }
 
 .rhcontent {
-    flex: .8
+    flex: .8;
+    color: var(--body-font-color);
 }
