@@ -1,10 +1,12 @@
 :root {
     --bg-color: #fff8ed;
     --title-text-color: #2f2f2f;
-    --subtitle-font-size: 1.5rem;
+    --subtitle-font-size: 2rem;
     --subtitle-font-color: #05298f
     --body-font-size: 1rem;
     --body-font-color: #1d2030;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
@@ -14,6 +16,7 @@ body {
     margin-top: 0;
     background-color: var(--bg-color);
     color: var(--title-text-color);
+    font-size: 1.25rem;
 }
 nav {
     flex: .1;
@@ -35,13 +38,27 @@ header {
 }
 
 header div{
-    font-size: 2.25rem;
+    font-size: clamp(.5rem, 2rem, 2.5rem);
     position: relative;
 }
 
 h1 {
     width: max-content;
     line-height: .875rem;
+}
+
+@media screen and (max-width: 800px) {
+    header div{
+        word-wrap: break-word;
+
+    }
+    h1::before,
+    h1::after {
+        visibility: hidden;
+    }
+    .subtitle-text {
+        visibility: hidden;
+    }
 }
 
 h1::before,
@@ -103,6 +120,15 @@ a {
 
 h3 span {
     text-decoration:underline;
+}
+
+h2 {
+    font-size: 3rem;
+    line-height: 2em;
+}
+
+h3 {
+    font-size: 1.825rem;
 }
 
 .split-content {
